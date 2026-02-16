@@ -24,6 +24,9 @@ public class Sensor {
    @Enumerated(EnumType.STRING)
    @Column(nullable = false)
     private SensorTipo type;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private SensorEstado state; // //ACTIVO = 1, INACTIVO = 0, MANTENIMIENTO = 2, ABIERTO = 3, CERRADO = 4, APAGADO = 5, ENCENDIDO = 6
 
 }

@@ -1,5 +1,7 @@
 package com.jaroso.apisensoresdaw.dtos;
 
-public record SensorUpdateDto(Long id, String name,String state) {
+import com.jaroso.apisensoresdaw.enums.SensorEstado;
+
+public record SensorUpdateDto(SensorEstado state) {
 
 }

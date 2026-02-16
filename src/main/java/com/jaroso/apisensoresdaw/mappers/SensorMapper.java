@@ -11,6 +11,6 @@ public interface SensorMapper {
 
     SensorDto sensorToDto(Sensor sensor);
     Sensor toEntity(SensorCreateDto sensorDto);
-    Sensor updateToEntity(SensorUpdateDto sensorDto);
+    //Sensor updateToEntity(SensorUpdateDto sensorDto);
 
 }

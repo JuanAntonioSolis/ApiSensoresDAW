@@ -29,7 +29,6 @@ public class SensorController {
        return ResponseEntity.ok(sensorRepository.findAll().stream()
                .map(sensorMapper::sensorToDto)
                .collect(Collectors.toList()));
-
     }
 
     @GetMapping("/{id}")
@@ -54,13 +53,15 @@ public class SensorController {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<SensorDto> updateSensor(@RequestBody SensorUpdateDto sensor) {
-        Sensor sensorEntity=sensorMapper.updateToEntity(sensor);
-        return ResponseEntity.ok(sensorMapper.sensorToDto(sensorRepository.save(sensorEntity)));
+    @PutMapping("/{id}")
+    public ResponseEntity<SensorDto> updateSensor(@PathVariable Long id, @RequestBody SensorUpdateDto sensorUpdateDto) {
+        Optional<Sensor> sensor = sensorRepository.findById(id);
+        if (sensor.isPresent()) {
+            sensor.get().setState(sensorUpdateDto.state());
+            return ResponseEntity.ok(sensorMapper.sensorToDto(sensorRepository.save(sensor.get())));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
-
-
-
 
 }

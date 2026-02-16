@@ -1,12 +1,11 @@
 package com.jaroso.apisensoresdaw.repositories;
 
-import com.jaroso.apisensoresdaw.dtos.SensorDto;
 import com.jaroso.apisensoresdaw.entities.Sensor;
-import com.jaroso.apisensoresdaw.enums.SensorTipo;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
 
+@Repository
 public interface SensorRepository extends JpaRepository<Sensor, Long> {
 
 }
