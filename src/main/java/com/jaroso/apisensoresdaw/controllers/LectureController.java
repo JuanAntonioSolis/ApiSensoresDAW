@@ -2,7 +2,6 @@ package com.jaroso.apisensoresdaw.controllers;
 
 import com.jaroso.apisensoresdaw.dtos.LectureCreateDto;
 import com.jaroso.apisensoresdaw.dtos.LectureDto;
-import com.jaroso.apisensoresdaw.dtos.SensorDto;
 import com.jaroso.apisensoresdaw.entities.Lecture;
 import com.jaroso.apisensoresdaw.entities.Sensor;
 import com.jaroso.apisensoresdaw.mappers.LectureMapper;
@@ -49,12 +48,11 @@ public class LectureController {
     @Transactional
     public ResponseEntity<LectureDto> saveLecture (@RequestBody LectureCreateDto lectureCreateDto) {
 
-        Lecture lecture1 = mapper.toEntity(lectureCreateDto);
-
         //El que busca en BBDD
         Optional<Sensor> sensor = sensorRepository.findById(lectureCreateDto.sensorId());
 
         if (sensor.isPresent()) {
+            Lecture lecture1 = mapper.toEntity(lectureCreateDto);
             lecture1.setSensor(sensor.get());
             lecture1.setTimeDay(LocalDateTime.now());
             lectureRepository.save(lecture1);

@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity(name = "sensores")
+@Table
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
