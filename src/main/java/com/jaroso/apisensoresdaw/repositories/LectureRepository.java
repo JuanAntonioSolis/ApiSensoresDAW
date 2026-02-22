@@ -10,6 +10,10 @@ import java.util.List;
 @Repository
 public interface LectureRepository extends JpaRepository<Lecture, Long> {
 
+    List<Lecture> findBySensorId(Long sensorId);
+
     List<Lecture> findBySensorIdAndTimeDayBetween(Long sensorId,
                                                   LocalDateTime inicio, LocalDateTime fin);
+
+
 }

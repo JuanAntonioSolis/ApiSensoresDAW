@@ -1,5 +1,6 @@
 package com.jaroso.apisensoresdaw.controllers;
 
+import com.jaroso.apisensoresdaw.dtos.DateRangeDto;
 import com.jaroso.apisensoresdaw.dtos.LectureCreateDto;
 import com.jaroso.apisensoresdaw.dtos.LectureDto;
 import com.jaroso.apisensoresdaw.entities.Lecture;
@@ -61,6 +62,81 @@ public class LectureController {
         } else{
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/sensor/{sensorId}")
+    public ResponseEntity<List<LectureDto>> findAllByDatesBetween(@PathVariable Long sensorId,
+                                                                  @RequestBody DateRangeDto dateRange) {
+
+        List<Lecture> allLectures = lectureRepository.findBySensorId(sensorId);
+
+        if (allLectures.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        LocalDateTime earliestDate = allLectures.stream()
+                .map(Lecture::getTimeDay)
+                .min(LocalDateTime::compareTo)
+                .orElse(null);
+
+        LocalDateTime latestDate = allLectures.stream()
+                .map(Lecture::getTimeDay)
+                .max(LocalDateTime::compareTo)
+                .orElse(null);
+
+        if (dateRange.inicio().isBefore(earliestDate) ||
+                dateRange.fin().isAfter(latestDate) ||
+                dateRange.inicio().isAfter(dateRange.fin())) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(lectureRepository.findBySensorIdAndTimeDayBetween(sensorId,
+                        dateRange.inicio(), dateRange.fin()).stream()
+                .map(mapper::lectureToDto)
+                .toList());
+
+
+
+        /*
+        // Obtener todas las lecturas del sensor
+        List<Lecture> allLectures = lectureRepository.findBySensorId(sensorId);
+
+        // Si no hay lecturas, devolver NotFound
+        if (allLectures.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        // Obtener la fecha más antigua y más reciente
+        LocalDateTime earliestDate = allLectures.stream()
+                .map(Lecture::getTimeDay)
+                .min(LocalDateTime::compareTo)
+                .orElse(null);
+
+        LocalDateTime latestDate = allLectures.stream()
+                .map(Lecture::getTimeDay)
+                .max(LocalDateTime::compareTo)
+                .orElse(null);
+
+        // Validar que la fecha de inicio no sea anterior a la más antigua
+        if (dateRange.inicio().isBefore(earliestDate)) {
+            return ResponseEntity.notFound().build();
+        }
+
+        // Validar que la fecha de fin no sea posterior a la más reciente
+        if (dateRange.fin().isAfter(latestDate)) {
+            return ResponseEntity.notFound().build();
+        }
+
+        // Filtrar las lecturas dentro del rango de fechas
+        List<LectureDto> lecturesBetween = allLectures.stream()
+                .filter(lecture -> !lecture.getTimeDay().isBefore(dateRange.inicio()) &&
+                        !lecture.getTimeDay().isAfter(dateRange.fin()))
+                .map(mapper::lectureToDto)
+                .toList();
+
+        return ResponseEntity.ok(lecturesBetween);
+
+         */
     }
 
 
