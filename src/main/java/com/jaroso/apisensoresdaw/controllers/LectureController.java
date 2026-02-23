@@ -84,9 +84,12 @@ public class LectureController {
                 .max(LocalDateTime::compareTo)
                 .orElse(null);
 
-        if (dateRange.inicio().isBefore(earliestDate) ||
-                dateRange.fin().isAfter(latestDate) ||
-                dateRange.inicio().isAfter(dateRange.fin())) {
+        if (dateRange.inicio().isBefore(earliestDate) && dateRange.fin().isBefore(latestDate)
+        ) {
+            return ResponseEntity.notFound().build();
+        } else if (dateRange.inicio().isAfter(latestDate) ) {
+            return ResponseEntity.notFound().build();
+        } else if (dateRange.fin().isBefore(earliestDate)) {
             return ResponseEntity.notFound().build();
         }
 
