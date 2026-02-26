@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  # -----------------------------------------------
+  # Base de datos MySQL
+  # -----------------------------------------------
+  db:
+    image: docker.io/mariadb:11
+    container_name: sensores-db
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-rootpassword}
+      MARIADB_DATABASE: ${DB_NAME:-sensoresdb}
+      MARIADB_USER: ${DB_USER:-sensores}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-sensorespass}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init-db:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # -----------------------------------------------
+  # Aplicación Spring Boot
+  # -----------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sensores-app
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://db:3306/${DB_NAME:-sensoresdb}?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: ${DB_USER:-sensores}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-sensorespass}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: ${DDL_AUTO:-update}
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-prod}
+    ports:
+      - "8080:8080"
+
+volumes:
+  db_data:
+    driver: local
