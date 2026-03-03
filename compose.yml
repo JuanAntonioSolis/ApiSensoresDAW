@@ -1,6 +1,19 @@
 version: "3.8"
 
 services:
+
+  # -----------------------------------------------
+  # Servicio MQTT (Eclipse Mosquitto)
+  # -----------------------------------------------
+  mqtt:
+    image: docker.io/eclipse-mosquitto:latest
+    container_name: mqtt-broker
+    ports:
+      - "1883:1883"       # Puerto estándar MQTT
+      - "9001:9001"       # Puerto para WebSocket (opcional)
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+
   # -----------------------------------------------
   # Base de datos MySQL
   # -----------------------------------------------
@@ -48,3 +61,6 @@ services:
 volumes:
   db_data:
     driver: local
+
+
+
