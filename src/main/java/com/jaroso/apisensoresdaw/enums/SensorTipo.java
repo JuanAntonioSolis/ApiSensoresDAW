@@ -9,5 +9,7 @@ public enum SensorTipo {
     ULTRASONICO,
     TEMPERATURA,
     LUZ,
-    ACTUADOR
+    ACTUADOR,
+    PULSADOR,
+    BOMBA
 }
