@@ -1,6 +1,4 @@
 package com.jaroso.apisensoresdaw.controllers;
-
-import com.jaroso.apisensoresdaw.dtos.DateRangeDto;
 import com.jaroso.apisensoresdaw.dtos.LectureCreateDto;
 import com.jaroso.apisensoresdaw.dtos.LectureDto;
 import com.jaroso.apisensoresdaw.entities.Lecture;
@@ -66,7 +64,8 @@ public class LectureController {
 
     @GetMapping("/sensor/{sensorId}")
     public ResponseEntity<List<LectureDto>> findAllByDatesBetween(@PathVariable Long sensorId,
-                                                                  @RequestBody DateRangeDto dateRange) {
+                                                                  @RequestParam LocalDateTime inicio,
+                                                                  @RequestParam LocalDateTime fin) {
 
         List<Lecture> allLectures = lectureRepository.findBySensorId(sensorId);
 
@@ -84,19 +83,20 @@ public class LectureController {
                 .max(LocalDateTime::compareTo)
                 .orElse(null);
 
-        if (dateRange.inicio().isBefore(earliestDate) && dateRange.fin().isBefore(latestDate)
-        ) {
+        if (inicio.isBefore(earliestDate) && fin.isBefore(latestDate)) {
             return ResponseEntity.notFound().build();
-        } else if (dateRange.inicio().isAfter(latestDate) ) {
+        } else if (inicio.isAfter(latestDate)) {
             return ResponseEntity.notFound().build();
-        } else if (dateRange.fin().isBefore(earliestDate)) {
+        } else if (fin.isBefore(earliestDate)) {
             return ResponseEntity.notFound().build();
         }
 
-        return ResponseEntity.ok(lectureRepository.findBySensorIdAndTimeDayBetween(sensorId,
-                        dateRange.inicio(), dateRange.fin()).stream()
-                .map(mapper::lectureToDto)
-                .toList());
+        return ResponseEntity.ok(
+                lectureRepository.findBySensorIdAndTimeDayBetween(sensorId, inicio, fin)
+                        .stream()
+                        .map(mapper::lectureToDto)
+                        .toList()
+        );
     }
 
 
