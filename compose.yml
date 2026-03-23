@@ -55,6 +55,8 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-sensorespass}
       SPRING_JPA_HIBERNATE_DDL_AUTO: ${DDL_AUTO:-update}
       SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-prod}
+      MQTT_HOST: mqtt
+      MQTT_PORT: 1883
     ports:
       - "8080:8080"
 
