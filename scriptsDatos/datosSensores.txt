@@ -1,0 +1,9 @@
+{"id": 1, "name": "SENSOR DE VOLUMEN 1", "description": "Sensor Volumen Entrada y Salida", "sector": "1", "type": "VOLUMEN", "state": "APAGADO"}
+{"id": 2, "name": "SENSOR PULSADOR 1", "description": "Sensor Pulsador Entrada y Salida", "sector": "1", "type": "PULSADOR", "state": "INACTIVO"}
+{"id": 3, "name": "SENSOR PRESION 1", "description": "Sensor Presión de agua Entrada y Salida", "sector": "1", "type": "PRESION", "state": "APAGADO"}
+{"id": 4, "name": "SENSOR CAUDAL 1", "description": "Sensor Caudal Entrada y Salida", "sector": "1", "type": "CAUDAL", "state": "APAGADO"}
+{"id": 5, "name": "SENSOR HUMEDAD 1", "description": "Sensor Humedad Entrada y Salida", "sector": "1", "type": "HUMEDAD", "state": "APAGADO"}
+{"id": 6, "name": "SENSOR HUMEDAD 2", "description": "Sensor Humedad Entrada y Salida", "sector": "1", "type": "HUMEDAD", "state": "APAGADO"}
+{"id": 7, "name": "BOMBA DE AGUA 1", "description": "Bomba de Agua Salida", "sector": "1", "type": "BOMBA", "state": "APAGADO"}
+{"id": 8, "name": "ELECTROVALVULA 1", "description": "Electroválvula Salida", "sector": "1", "type": "ELECTROVALVULA", "state": "CERRADO"}
+{"id": 9, "name": "ELECTROVALVULA 2", "description": "Electroválvula Salida", "sector": "1", "type": "ELECTROVALVULA", "state": "CERRADO"}

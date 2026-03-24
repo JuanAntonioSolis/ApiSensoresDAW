@@ -1,0 +1,44 @@
+{"valor": 148.5, "unidad": "L", "sensorId": 1, "timeDay": "2026-03-14T10:00:00"}
+{"valor": 151.2, "unidad": "L", "sensorId": 1, "timeDay": "2026-03-14T10:00:15"}
+{"valor": 153.8, "unidad": "L", "sensorId": 1, "timeDay": "2026-03-14T10:00:30"}
+{"valor": 150.1, "unidad": "L", "sensorId": 1, "timeDay": "2026-03-14T10:00:45"}
+{"valor": 147.9, "unidad": "L", "sensorId": 1, "timeDay": "2026-03-14T10:01:00"}
+{"valor": 155.3, "unidad": "L", "sensorId": 1, "timeDay": "2026-03-14T10:01:15"}
+{"valor": 152.7, "unidad": "L", "sensorId": 1, "timeDay": "2026-03-14T10:01:30"}
+{"valor": 149.4, "unidad": "L", "sensorId": 1, "timeDay": "2026-03-14T10:01:45"}
+
+{"valor": 2.41, "unidad": "Bar", "sensorId": 3, "timeDay": "2026-03-14T10:00:00"}
+{"valor": 2.38, "unidad": "Bar", "sensorId": 3, "timeDay": "2026-03-14T10:00:15"}
+{"valor": 2.45, "unidad": "Bar", "sensorId": 3, "timeDay": "2026-03-14T10:00:30"}
+{"valor": 2.52, "unidad": "Bar", "sensorId": 3, "timeDay": "2026-03-14T10:00:45"}
+{"valor": 2.47, "unidad": "Bar", "sensorId": 3, "timeDay": "2026-03-14T10:01:00"}
+{"valor": 2.35, "unidad": "Bar", "sensorId": 3, "timeDay": "2026-03-14T10:01:15"}
+{"valor": 2.43, "unidad": "Bar", "sensorId": 3, "timeDay": "2026-03-14T10:01:30"}
+{"valor": 2.50, "unidad": "Bar", "sensorId": 3, "timeDay": "2026-03-14T10:01:45"}
+
+{"valor": 11.8, "unidad": "L/min", "sensorId": 4, "timeDay": "2026-03-14T10:00:00"}
+{"valor": 12.3, "unidad": "L/min", "sensorId": 4, "timeDay": "2026-03-14T10:00:15"}
+{"valor": 12.7, "unidad": "L/min", "sensorId": 4, "timeDay": "2026-03-14T10:00:30"}
+{"valor": 11.5, "unidad": "L/min", "sensorId": 4, "timeDay": "2026-03-14T10:00:45"}
+{"valor": 13.1, "unidad": "L/min", "sensorId": 4, "timeDay": "2026-03-14T10:01:00"}
+{"valor": 12.0, "unidad": "L/min", "sensorId": 4, "timeDay": "2026-03-14T10:01:15"}
+{"valor": 11.9, "unidad": "L/min", "sensorId": 4, "timeDay": "2026-03-14T10:01:30"}
+{"valor": 12.5, "unidad": "L/min", "sensorId": 4, "timeDay": "2026-03-14T10:01:45"}
+
+{"valor": 71.5, "unidad": "%", "sensorId": 5, "timeDay": "2026-03-14T10:00:00"}
+{"valor": 73.2, "unidad": "%", "sensorId": 5, "timeDay": "2026-03-14T10:00:15"}
+{"valor": 74.8, "unidad": "%", "sensorId": 5, "timeDay": "2026-03-14T10:00:30"}
+{"valor": 72.1, "unidad": "%", "sensorId": 5, "timeDay": "2026-03-14T10:00:45"}
+{"valor": 70.9, "unidad": "%", "sensorId": 5, "timeDay": "2026-03-14T10:01:00"}
+{"valor": 75.3, "unidad": "%", "sensorId": 5, "timeDay": "2026-03-14T10:01:15"}
+{"valor": 73.7, "unidad": "%", "sensorId": 5, "timeDay": "2026-03-14T10:01:30"}
+{"valor": 72.4, "unidad": "%", "sensorId": 5, "timeDay": "2026-03-14T10:01:45"}
+
+{"valor": 64.2, "unidad": "%", "sensorId": 6, "timeDay": "2026-03-14T10:00:00"}
+{"valor": 66.1, "unidad": "%", "sensorId": 6, "timeDay": "2026-03-14T10:00:15"}
+{"valor": 63.8, "unidad": "%", "sensorId": 6, "timeDay": "2026-03-14T10:00:30"}
+{"valor": 65.5, "unidad": "%", "sensorId": 6, "timeDay": "2026-03-14T10:00:45"}
+{"valor": 67.0, "unidad": "%", "sensorId": 6, "timeDay": "2026-03-14T10:01:00"}
+{"valor": 64.9, "unidad": "%", "sensorId": 6, "timeDay": "2026-03-14T10:01:15"}
+{"valor": 63.3, "unidad": "%", "sensorId": 6, "timeDay": "2026-03-14T10:01:30"}
+{"valor": 65.8, "unidad": "%", "sensorId": 6, "timeDay": "2026-03-14T10:01:45"}
