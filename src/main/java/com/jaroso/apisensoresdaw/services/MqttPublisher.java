@@ -1,7 +1,6 @@
 package com.jaroso.apisensoresdaw.services;
 
 import com.hivemq.client.mqtt.mqtt3.Mqtt3AsyncClient;
-import com.hivemq.client.mqtt.mqtt3.Mqtt3BlockingClient;
 import com.hivemq.client.mqtt.mqtt3.Mqtt3Client;
 import com.hivemq.client.mqtt.mqtt3.message.publish.Mqtt3Publish;
 import com.jaroso.apisensoresdaw.controllers.LectureController;
